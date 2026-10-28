@@ -36,12 +36,12 @@ modules:
       -  virtualbox-guest-utils
       -  qemu-guest-agent
       -  spice-vdagent
-        # Font
+      # Font
       -  noto-fonts
       -  noto-fonts-cjk
       -  noto-fonts-emoji
       -  noto-fonts-extra
-        #Desktop environment
+      #Desktop environment
       -  hyprland
       -  waybar
       -  fuzzel
