@@ -20,7 +20,7 @@ modules:
   - type: pacman
     install:
       packages:
-      -  virtio-vga
+      -  qemu-hw-display-virtio-vga
       -  vulkan-virtio
       -  mesa
       -  pipewire
