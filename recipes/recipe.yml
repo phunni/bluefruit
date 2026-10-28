@@ -20,31 +20,31 @@ modules:
   - type: pacman
     install:
       packages:
-        virtio-vga
-        vulkan-virtio
-        mesa
-        pipewire
-        pipewire-audio
-        pipewire-alsa
-        pipewire-pulse
-        pipewire-jack
-        pipewire-libcamera
-        pipewire-v4l2
-        pipewire-ffado
-        wget
-        curl
-        virtualbox-guest-utils
-        qemu-guest-agent
-        spice-vdagent
+      -  virtio-vga
+      -  vulkan-virtio
+      -  mesa
+      -  pipewire
+      -  pipewire-audio
+      -  pipewire-alsa
+      -  pipewire-pulse
+      -  pipewire-jack
+      -  pipewire-libcamera
+      -  pipewire-v4l2
+      -  pipewire-ffado
+      -  wget
+      -  curl
+      -  virtualbox-guest-utils
+      -  qemu-guest-agent
+      -  spice-vdagent
         # Font
-        noto-fonts
-        noto-fonts-cjk
-        noto-fonts-emoji
-        noto-fonts-extra
+      -  noto-fonts
+      -  noto-fonts-cjk
+      -  noto-fonts-emoji
+      -  noto-fonts-extra
         #Desktop environment
-        hyprland
-        waybar
-        fuzzel
+      -  hyprland
+      -  waybar
+      -  fuzzel
 
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
