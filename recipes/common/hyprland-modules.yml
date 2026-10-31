@@ -1,0 +1,27 @@
+modules:
+    - type: dnf
+      repos:
+        copr:
+          enable:
+            - craftidore/wayblueorg-hyprland
+      install:
+        install-weak-deps: false
+        packages:
+        - kitty
+        - hyprland
+        - waybar
+        - xdg-desktop-portal-hyprland
+        - hyprpaper
+        - hyprlock
+        - hypridle
+        - hyprland-guiutils
+
+    - type: files
+      files:
+        - source: system/hyprland
+          destination: /
+
+    - type: script
+      scripts:
+        - removeunprofessionalwallpapers.sh
+        - sethyprlandwaybarmodules.sh
