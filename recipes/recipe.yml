@@ -14,8 +14,10 @@ image-version: latest # You can pin to a specific version of Fedora as well
 modules:
   - type: files
     files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+      - source: system/usr
+        destination: /usr
+      - source: system/etc
+        destination: /etc
 
   - type: dnf
     repos:
