@@ -31,11 +31,30 @@ modules:
         # "firefox" is the main package, "firefox-langpacks" is a dependency
      #   - firefox
      #   - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-  - type: pacman
+  - type : dnf
     install:
       packages:
-      - hyprland
-  #- type: default-flatpaks
+      #basic setup
+      - screen
+      - smartmontools
+      - nano
+      - p7zip
+      - unrar
+      - cmake
+      - meson
+      - usbutils
+      - fish
+      - htop
+      - btop
+      - rsync
+      - virt-manager
+      - python3-llfuse
+      - hwinfo
+      - unzip
+      - speedtest-cli
+      - restic
+      - fwupd
+      #type: default-flatpaks
   #  configurations:
   #    - notify: true # Send notification after install/uninstall is finished (true/false)
   #      scope: system
