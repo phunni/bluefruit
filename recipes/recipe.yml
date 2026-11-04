@@ -18,6 +18,8 @@ modules:
         destination: /usr
       - source: system/etc
         destination: /etc
+      - source: system/var
+        destination: /var
 
   - type: dnf
     repos:
