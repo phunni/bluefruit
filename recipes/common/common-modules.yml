@@ -40,8 +40,7 @@ modules:
         install-weak-deps: false
         packages:
         # launcher
-          - rofi-wayland
-          - wofi
+          - fuzzel
 
         # environment
           - fzf
@@ -50,8 +49,7 @@ modules:
           - headsetcontrol
           - mediainfo
           - polkit
-          - xfce-polkit 
-          - fprintd-pam
+          - xfce-polkit
           - xdg-user-dirs
           - dbus-tools
           - dbus-daemon
@@ -64,35 +62,34 @@ modules:
           - vulkan-tools
           - google-noto-emoji-fonts
           - gnome-disk-utility
+          - smartmontools
+          - nano
           - ddcutil
           - openssl
-          - vim
           - just
           - alsa-firmware
           - p7zip
           - distrobox
           - steam-devices
-          
+
         # sound
           - wireplumber
           - pipewire
           - pamixer
           - pulseaudio-utils
+          - easyeffects
+          - pipewire-pulseaudio
+          - pipewire-plugin-jack
+          - pipewire-alsa
 
         # networking
-          - network-manager-applet
-          - NetworkManager-openvpn
-          - NetworkManager-openvpn-gnome
-          - NetworkManager-openconnect
-          - NetworkManager-openconnect-gnome
           - bluez
           - bluez-tools
           - blueman
-          - firewall-config
 
         # file manager
           - thunar
-          - thunar-archive-plugin 
+          - thunar-archive-plugin
           - thunar-volman
           - xarchiver
           - imv
@@ -116,13 +113,13 @@ modules:
           - kanshi
 
         # notifications
-          - dunst
+          - mako
 
         # theme and GUI
           - fontawesome-fonts-all
           - gnome-icon-theme
           - paper-icon-theme
-          - breeze-icon-theme 
+          - breeze-icon-theme
           - papirus-icon-theme
       replace:
         - from-repo: fedora
