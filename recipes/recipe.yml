@@ -58,6 +58,8 @@ modules:
       - speedtest-cli
       - restic
       - fwupd
+      - libappindicator-gtk3
+
       #type: default-flatpaks
   #  configurations:
   #    - notify: true # Send notification after install/uninstall is finished (true/false)
