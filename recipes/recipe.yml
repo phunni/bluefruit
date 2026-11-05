@@ -18,8 +18,6 @@ modules:
         destination: /usr
       - source: system/etc
         destination: /etc
-      - source: system/var
-        destination: /var
 
   - type: dnf
     repos:
@@ -59,6 +57,14 @@ modules:
       - restic
       - fwupd
       - libappindicator-gtk3
+      - zsh
+
+
+  - type: dnf
+    install:
+      packages:
+        - brscan5-1.8.0-0.x86_64.rpm
+
 
       #type: default-flatpaks
   #  configurations:
