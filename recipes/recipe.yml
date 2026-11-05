@@ -18,14 +18,8 @@ modules:
         destination: /usr
       - source: system/etc
         destination: /etc
-
-  - type: copy
-    src: var/usrlocal/bin/changeWindow.sh
-    dest: /usr/local/bin/changeWindow.sh
-
-  - type: copy
-    src: var/usrlocal.bin/wallpapers.sh
-    dest: /usr/local/bin/wallpapers.sh
+      - source: system/var
+        destination: /var
 
   - type: dnf
     repos:
