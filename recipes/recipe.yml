@@ -77,5 +77,6 @@ modules:
   #    - scope: user # Also add Flathub user repo, but no user packages
   #
   - from-file: common/hyprland-modules.yml
+  - from-file: common/sddm-modules.yml
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
