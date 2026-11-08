@@ -1,4 +1,4 @@
-modules: 
+modules:
     - type: dnf
       install:
         install-weak-deps: false
@@ -8,8 +8,9 @@ modules:
           - qt5-qtgraphicaleffects
           - qt5-qtquickcontrols2
           - qt5-qtsvg
-          - kwallet
-          - pam-kwallet
+          # Don't think I need or want the next two lines...
+          #- kwallet
+          #- pam-kwallet
 
     - type: script
       scripts:
