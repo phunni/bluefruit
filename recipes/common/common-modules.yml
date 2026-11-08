@@ -61,7 +61,7 @@ modules:
           - vulkan-validation-layers
           - vulkan-tools
           - google-noto-emoji-fonts
-          - gnome-disk-utility
+          # - gnome-disk-utility
           - smartmontools
           - nano
           - ddcutil
@@ -117,7 +117,7 @@ modules:
 
         # theme and GUI
           - fontawesome-fonts-all
-          - gnome-icon-theme
+          # - gnome-icon-theme
           - paper-icon-theme
           - breeze-icon-theme
           - papirus-icon-theme
