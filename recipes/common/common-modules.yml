@@ -127,9 +127,9 @@ modules:
               new: ocl-icd
 
 
-    - type: script
-      scripts:
-        - installrpmfusion.sh
+    #- type: script
+    #  scripts:
+    #    - installrpmfusion.sh
         #- removeunusedrepos.sh
 
     - type: files
