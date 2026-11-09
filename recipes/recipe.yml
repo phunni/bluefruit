@@ -68,7 +68,7 @@ modules:
   #        - org.gnome.Loupe
   #    - scope: user # Also add Flathub user repo, but no user packages
   #
-  - from-file: common/common-modules.sh
+  - from-file: common/common-modules.yml
   - from-file: common/hyprland-modules.yml
   - from-file: common/sddm-modules.yml
 
