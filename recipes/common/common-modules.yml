@@ -5,9 +5,10 @@ modules:
         - COPY --from=ghcr.io/ublue-os/akmods:main-44 /kernel-rpms /tmp/rpms/kernel
         - RUN find /tmp/rpms
         - RUN rpm -q ublue-os-akmods-addons || dnf install -y /tmp/rpms/ublue-os/ublue-os-akmods-addons*.rpm
-    - type: script
-      scripts:
-        - installsignedkernel.sh
+    # TODO: install kernel variant
+    #- type: script
+    #  scripts:
+    #    - installsignedkernel.sh
 
     - type: dnf
       install:
