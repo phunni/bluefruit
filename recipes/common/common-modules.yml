@@ -88,9 +88,7 @@ modules:
           - blueman
 
         # file manager
-          - thunar
-          - thunar-archive-plugin
-          - thunar-volman
+          - mc
           - xarchiver
           - imv
           - p7zip
@@ -149,10 +147,10 @@ modules:
       scripts:
         - addbrewjustimport.sh
 
-    - type: systemd
-      user:
-        enabled:
-          - wayblue-update-verification.service
+    #- type: systemd
+    #  user:
+    #    enabled:
+    #      - wayblue-update-verification.service
 
     - type: wayblue-signing
       source: local
