@@ -126,7 +126,6 @@ modules:
             - old: OpenCL-ICD-Loader
               new: ocl-icd
 
-    - from-file: common/proprietary-modules.yml
 
     - type: script
       scripts:
