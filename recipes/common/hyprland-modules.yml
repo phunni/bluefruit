@@ -3,7 +3,7 @@ modules:
       repos:
         copr:
           enable:
-            - ashbuk/Hyprland-Fedora
+            - lionheartp/Hyprland
       install:
         install-weak-deps: false
         packages:
