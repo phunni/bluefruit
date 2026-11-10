@@ -3,7 +3,7 @@ modules:
       repos:
         copr:
           enable:
-            - craftidore/wayblueorg-hyprland
+            - ashbuk/Hyprland-Fedora
       install:
         install-weak-deps: false
         packages:
