@@ -13,6 +13,8 @@ modules:
           - qt6-qtmultimedia
           - gstreamer1-plugins-base
           - gstreamer1-plugins-good
+          - gstreamer1-plugins-good-extra
+          - gstreamer1-plugins-good-qt6
           - gstreamer1-plugins-ugly-free
           - gstreamer1-plugins-bad-free
           # Don't think I need or want the next two lines...
