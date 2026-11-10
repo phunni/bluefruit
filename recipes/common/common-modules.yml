@@ -128,8 +128,8 @@ modules:
 
 
     #- type: script
-    #  scripts:
-    #    - installrpmfusion.sh
+      #scripts:
+        #- installrpmfusion.sh
         #- removeunusedrepos.sh
 
     - type: files
