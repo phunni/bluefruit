@@ -13,10 +13,10 @@ image-version: 44 #You can pin to a specific version of Fedora as wel
 # you can include multiple instances of the same module
 modules:
 
-  - type: dnf
-    repos:
-      files:
-        - https://terra.fyralabs.com/terra.repo
+  #- type: dnf
+  #  repos:
+  #    files:
+  #      - https://terra.fyralabs.com/terra.repo
 
   - type: dnf
     repos:
