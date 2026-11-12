@@ -17,10 +17,10 @@ modules:
     install:
       - rpmfusion
 
-  - type: dnf
-    repos:
-      files:
-        - https://github.com/terrapkg/packages/tree/f44/anda/terra/release/terra.repo
+ # - type: dnf
+ #   repos:
+ #     files:
+ #       - https://github.com/terrapkg/packages/tree/f44/anda/terra/release/terra.repo
 
   - type: dnf
     repos:
