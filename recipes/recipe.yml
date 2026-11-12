@@ -15,8 +15,8 @@ modules:
 
   - type: dnf
     repos:
-      enable:
-        - terra
+      files:
+        - https://terra.fyralabs.com/terra.repo
 
   - type: dnf
     repos:
