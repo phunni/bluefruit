@@ -50,7 +50,15 @@ modules:
       - fwupd
       - libappindicator-gtk3
       - zsh
+      - nwg-look
+      - easytag
 
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      packages:
+        - libdvdcss
 
   - type: dnf
     install:
