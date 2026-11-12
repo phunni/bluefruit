@@ -13,10 +13,14 @@ image-version: 44 #You can pin to a specific version of Fedora as wel
 # you can include multiple instances of the same module
 modules:
 
-  #- type: dnf
-  #  repos:
-  #    files:
-  #      - https://terra.fyralabs.com/terra.repo
+  - type: bling
+    install:
+      - rpmfusion
+
+  - type: dnf
+    repos:
+      files:
+        - https://github.com/terrapkg/packages/tree/f44/anda/terra/release/terra.repo
 
   - type: dnf
     repos:
@@ -56,13 +60,7 @@ modules:
       - libappindicator-gtk3
       - zsh
       - easytag
-
-  - type: dnf
-    repos:
-      nonfree: rpmfusion
-    install:
-      packages:
-        - libdvdcss
+      - libdvdcss
 
   - type: dnf
     install:
