@@ -61,6 +61,7 @@ modules:
       - zsh
       - easytag
       - libdvdcss
+      - nwg-look
 
   - type: dnf
     install:
