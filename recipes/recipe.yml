@@ -72,6 +72,14 @@ modules:
       packages:
         - brscan5-1.8.0-0.x86_64.rpm
 
+  - type: dnf
+    repos:
+      copr:
+      - sneexy/zen-browser
+    install:
+      packages:
+       - zen-browser
+
 
       #type: default-flatpaks
   #  configurations:
