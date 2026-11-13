@@ -61,7 +61,6 @@ modules:
       - zsh
       - easytag
       - libdvdcss
-     # - nwg-look
       - egl-wayland
       - evtest
       - qt6ct

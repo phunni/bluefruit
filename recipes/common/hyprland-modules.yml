@@ -16,6 +16,7 @@ modules:
         - hyprlock
         - hypridle
         - hyprland-guiutils
+        - nwg-look
 
     - type: script
       scripts:
