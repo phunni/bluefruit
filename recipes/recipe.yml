@@ -61,7 +61,12 @@ modules:
       - zsh
       - easytag
       - libdvdcss
-      - nwg-look
+     # - nwg-look
+      - egl-wayland
+      - evtest
+      - qt6ct
+      - fox-utils
+      - zip
 
   - type: dnf
     install:
