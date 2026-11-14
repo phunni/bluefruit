@@ -1,8 +1,9 @@
 modules:
   type: fonts
-   nerd-fonts:
-     - BitstromWera
-     - DejaVuSansMono
-     - JetBrainsMono
-  google-fonts:
-     - Gentium Book Plus
+  fonts:
+    nerd-fonts:
+      - BitstromWera
+      - DejaVuSansMono
+      - JetBrainsMono
+    google-fonts:
+      - Gentium Book Plus
