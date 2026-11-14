@@ -36,41 +36,7 @@ modules:
         # "firefox" is the main package, "firefox-langpacks" is a dependency
      #   - firefox
      #   - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-  - type : dnf
-    install:
-      packages:
-      #basic setup
-      - screen
-      - p7zip
-      - unrar
-      - cmake
-      - meson
-      - usbutils
-      - fish
-      - htop
-      - btop
-      - rsync
-      - virt-manager
-      - python3-llfuse
-      - hwinfo
-      - unzip
-      - speedtest-cli
-      - restic
-      - fwupd
-      - libappindicator-gtk3
-      - zsh
-      - easytag
-      - libdvdcss
-      - egl-wayland
-      - evtest
-      - qt6ct
-      - fox-utils
-      - zip
-
-  - type: dnf
-    install:
-      packages:
-        - brscan5-1.8.0-0.x86_64.rpm
+  - from-file: common/desktop-modules.yml
 
   - type: dnf
     repos:
