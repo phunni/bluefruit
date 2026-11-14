@@ -34,3 +34,5 @@ modules:
     install:
       packages:
         - brscan5-1.8.0-0.x86_64.rpm
+
+  - from-file: common/fonts/yml
