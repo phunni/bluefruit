@@ -14,7 +14,7 @@ modules:
         - DaddyTimeMono
         - DroidSansMono
         - ZedMono
-        - Hurmit
+        - Hermit
         - CodeNewRoman
       google-fonts:
         - Open Sans
