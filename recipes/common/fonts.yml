@@ -6,5 +6,19 @@ modules:
         - BitstreamVeraSansMono
         - DejaVuSansMono
         - JetBrainsMono
+        - Inconsolata
+        - Noto
+        - Monoid
+        - Mononoki
+        - RobotoMono
+        - DaddyTimeMono
+        - DroidSansMono
+        - ZedMono
+        - Hurmit
+        - CodeNewRoman
       google-fonts:
         - Open Sans
+        - Nunito
+        - Noto Emoji
+        - Noto Color Emoji
+        - IBM Plex Mono
