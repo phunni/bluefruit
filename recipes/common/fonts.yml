@@ -3,7 +3,7 @@ modules:
   - type: fonts
     fonts:
       nerd-fonts:
-        - BitstromWera
+        - BitstromVeraSansMono
         - DejaVuSansMono
         - JetBrainsMono
       google-fonts:
