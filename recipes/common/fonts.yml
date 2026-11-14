@@ -6,4 +6,4 @@ modules:
       - DejaVuSansMono
       - JetBrainsMono
     google-fonts:
-      - Open Sans
+      - OpenSans
