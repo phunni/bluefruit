@@ -37,7 +37,6 @@ modules:
       - wl-clipboard
       - gimp
       - handbrake
-      -
     #Java
       - java-latest-openjdk
       - java-1.8.0-openjdk
