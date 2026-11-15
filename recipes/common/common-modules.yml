@@ -82,6 +82,7 @@ modules:
           - pipewire-pulseaudio
           - pipewire-plugin-jack
           - pipewire-alsa
+          - qpwgraph
 
         # networking
           - bluez

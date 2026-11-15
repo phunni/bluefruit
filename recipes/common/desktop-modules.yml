@@ -29,6 +29,22 @@ modules:
       - qt6ct
       - fox-utils
       - zip
+    # Hunnisett generic despktop apps
+      - wmname
+      - perf
+      - fuse-sshfs
+      - libsmbclient
+      - wl-clipboard
+      - gimp
+      - handbrake
+      -
+    #Java
+      - java-latest-openjdk
+      - java-1.8.0-openjdk
+      - java-11-openjdk
+      - java-17-openjdk
+      - java-21-openjdk
+      - maven
 
   - type: dnf
     install:
