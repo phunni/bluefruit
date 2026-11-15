@@ -45,7 +45,8 @@ modules:
   - type: dnf
     repos:
      files:
-      -  https://packages.adoptium.net/artifactory/rpm/centos/$(uname -m)/adoptium.repo
+      #-  https://packages.adoptium.net/artifactory/rpm/centos/x86_64/adoptium.repo
+      - https://packages.adoptium.net/artifactory/rpm/${DISTRIBUTION_NAME:-$(. /etc/os-release; echo $ID)}/\$releasever/\$basearch
      keys:
       - https://packages.adoptium.net/artifactory/api/gpg/key/public
     install:
