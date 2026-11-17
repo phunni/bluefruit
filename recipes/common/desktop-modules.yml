@@ -43,19 +43,13 @@ modules:
 
     #Java
   - type: dnf
-    repos:
-     files:
-      #-  https://packages.adoptium.net/artifactory/rpm/centos/x86_64/adoptium.repo
-      - https://packages.adoptium.net/ui/native/rpm/fedora/44/x86_64
-     keys:
-      - https://packages.adoptium.net/artifactory/api/gpg/key/public
     install:
       packages:
-       - temurin-26-jdk
-       #- temurin-8-jdk
-       - temurin-11-jdk
-       - temurin-17-jdk
-       - temurin-21-jdk
+       - https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-8-jdk-8.0.512.0.0.9-0.x86_64.rpm
+       - https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-11-jdk-11.0.33.0.0.10-0.x86_64.rpm
+       - https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-17-jdk-17.0.21.0.0.9-0.x86_64.rpm
+       - https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-21-jdk-21.0.13.0.0.9-0.x86_64.rpm
+       - https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-25-jdk-25.0.5.0.0.8-0.x86_64.rpm
        - maven
 
   - type: dnf
