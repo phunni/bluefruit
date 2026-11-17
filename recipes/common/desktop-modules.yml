@@ -45,7 +45,7 @@ modules:
   - type: dnf
     install:
       packages:
-       - temurin-8-jdk-8.0.512.0.0.9-0.x86_64.rpm
+       #- temurin-8-jdk-8.0.512.0.0.9-0.x86_64.rpm
        - temurin-11-jdk-11.0.33.0.0.10-0.x86_64.rpm
        #- https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-17-jdk-17.0.21.0.0.9-0.x86_64.rpm
        #- https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-21-jdk-21.0.13.0.0.9-0.x86_64.rpm
