@@ -6,59 +6,163 @@ name: bluefruit
 description: This is my personal bluefruit OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: quay.io/fedora-ostree-desktops/base-atomic
-image-version: 44 #You can pin to a specific version of Fedora as wel
+base-image: ghcr.io/fiftydinar/arch-bootc
+image-version: latest #You can pin to a specific version of Fedora as wel
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
 
-  - type: bling
-    install:
-      - rpmfusion
+- type: pacman
+  install:
+    packages:
+      # GPU acceleration - OpenGL, Vulkan, video decoding/encoding (I won't cover proprietary Nvidia by default)
+              - mesa
+              - vulkan-radeon
+              - vulkan-intel
+              - vulkan-nouveau
+              - vulkan-swrast
+              - libva-intel-driver
+              - intel-media-driver
+              - libvpl
+              - vpl-gpu-rt
+              - intel-media-sdk
+              # Audio
+              - pipewire
+              - pipewire-audio
+              - pipewire-alsa
+              - pipewire-pulse
+              - pipewire-jack
+              - pipewire-libcamera
+              - pipewire-v4l2
+              - pipewire-ffado
+              # Time-sync
+              - chrony
+              # Network
+              - networkmanager
+              - wget
+              # Bluetooth
+              - bluez
+              - bluez-obex
+              - bluez-mesh
+              - bluez-utils
+              # Virtual machines
+              - virtualbox-guest-utils
+              - qemu-guest-agent
+              - spice-vdagent
+              - phodav
+              # Containers
+              - distrobox
+              # Font
+              - noto-fonts
+              - noto-fonts-cjk
+              - noto-fonts-emoji
+              - noto-fonts-extra
+              # Desktop environment
+              - xorg
+              - xorg-drivers
+              - xfce4
+              - xfce4-screenshooter
+              - obsidian-icon-theme
+              - kvantum-qt5
+              - kvantum
+              - qt5ct
+              - qt6ct
+              - lightdm
+              - lightdm-gtk-greeter
+              - accountsservice
+              - pavucontrol
+              - network-manager-applet
+              - blueman
+              - xfce4-whiskermenu-plugin
+              - xfce4-notifyd
+              - xfce4-pulseaudio-plugin
+              - xfce4-xkb-plugin
+              - thunar-archive-plugin
+              - xdg-user-dirs
+              - gvfs
+              - gvfs-mtp
+              - zram-generator
+              # CLI editor
+              - nano
+              # Archives GUI
+              - xarchiver
+              # AppImage thumbnailer dependencies
+              - squashfuse
+              - imagemagick
+              # usb-storage-optimized-async dependencies
+              - usbutils
+              - bc
+              # Debugging
+              - strace
+              - libva-utils
+              - mesa-utils
+              - vulkan-tools
+              - clinfo
+              - xdotool
+              # DNS resolver (replaces systemd-resolved)
+              - unbound
+              - avahi
+              - nss-mdns
+              # OOM prevention
+              - jsoncpp
+              # Provides setfattr for oomd-protect-self (user.oomd_avoid xattr tagging)
+              - attr
+              # Other
+              - expac
+              - dash
+              - git
+-  type: script
+   snippets:
+     # Install all optional dependencies for xarchiver
+     - "pacman -Syu --needed --noconfirm --asdeps $(expac -Ss '%o' xarchiver)"
+     # Symlink dash to sh with pacman hook to persist across bash updates
+     - "ln -sfT /usr/bin/dash /usr/bin/sh"
+     - |
+      cat > /usr/share/libalpm/hooks/dashbinsh.hook << 'HOOK'
+      [Trigger]
+      Type = Package
+      Operation = Install
+      Operation = Upgrade
+      Target = bash
 
- # - type: dnf
- #   repos:
- #     files:
- #       - https://github.com/terrapkg/packages/tree/f44/anda/terra/release/terra.repo
+      [Action]
+      Description = Re-pointing /bin/sh symlink to dash...
+      When = PostTransaction
+      Exec = /usr/bin/ln -sfT dash /usr/bin/sh
+      Depends = dash
+       HOOK
+      # Fix dracut's lib hang on finding root device due to dash's hex escape
+      - |
+      sed -i 's/echo "\$hook"/printf '\''%s\\n'\'' "$hook"/g' /usr/lib/dracut/modules.d/80base/dracut-lib.sh
+      # Install usb-storage-optimized-async
+      - "wget --retry-connrefused --tries=30 https://raw.githubusercontent.com/fiftydinar/usb-storage-optimized-async/refs/heads/main/usb-storage-optimized-async-service -O /usr/bin/usb-storage-optimized-async-service && chmod +x /usr/bin/usb-storage-optimized-async-service && wget --tries=30 --retry-connrefused https://raw.githubusercontent.com/fiftydinar/usb-storage-optimized-async/refs/heads/main/usb-storage-optimized-async-udev -O /usr/bin/usb-storage-optimized-async-udev && chmod +x /usr/bin/usb-storage-optimized-async-udev && wget --tries=30 --retry-connrefused https://raw.githubusercontent.com/fiftydinar/usb-storage-optimized-async/refs/heads/main/usb-storage-optimized-async-service.service -O /usr/lib/systemd/system/usb-storage-optimized-async-service.service && wget --tries=30 --retry-connrefused https://raw.githubusercontent.com/fiftydinar/usb-storage-optimized-async/refs/heads/main/zz1-usb-storage-optimized-async-udev.rules -O /usr/lib/udev/rules.d/zz1-usb-storage-optimized-async-udev.rules && systemctl --system enable usb-storage-optimized-async-service.service"
+      # Sudo for wheel group
+      - |
+      sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers || echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
+      # Set default language to English and generate locale
+      - |
+      sed -i 's/^# *\([a-z]\+\_[A-Z]\+.*\)/\1/' /etc/locale.gen
+      - "locale-gen"
+      - "echo 'LANG=en_GB.UTF-8' > /etc/locale.conf"
+      # Set nano as the default editor
+      - "echo 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
+      # Set gtk-nocsd by default
+            - "echo 'LD_PRELOAD=/usr/lib/libgtk-nocsd.so:/usr/lib/libappimage-scope.so' >> /etc/environment"
+            - "echo 'SHARUN_ALLOW_LD_PRELOAD=1' >> /etc/environment"
+            - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
+- type: files
+  files:
+    - source: usr
+      destination: /usr
+    - source: etc
+      destination: /etc
 
-  - type: dnf
-    repos:
-      copr:
-        - atim/starship
-    install:
-      packages:
-        - micro
-        - starship
-    #remove:
-    #  packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-     #   - firefox
-     #   - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-  - from-file: common/desktop-modules.yml
-
-  - type: dnf
-    repos:
-      copr:
-      - sneexy/zen-browser
-    install:
-      packages:
-       - zen-browser
-
-
-      #type: default-flatpaks
-  #  configurations:
-  #    - notify: true # Send notification after install/uninstall is finished (true/false)
-  #      scope: system
-  #      # If no repo information is specified, Flathub will be used by default
-  #      install: # system flatpaks we want all users to have and not remove
-  #        - org.mozilla.firefox
-  #        - org.gnome.Loupe
-  #    - scope: user # Also add Flathub user repo, but no user packages
-  #
-  - from-file: common/common-modules.yml
-  - from-file: common/hyprland-modules.yml
-  - from-file: common/sddm-modules.yml
-
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+- type: signing # this sets up the proper policy & signing files for signed images to work fully
+- type: script
+  snippets:
+    - |
+      dracut --force "$(find /usr/lib/modules -maxdepth 1 -type d | grep -v "\.img$" | tail -n 1)"/initramfs.img
+    - |
+      LC_ALL=C pacman -Qi | awk '/^Name/ {p=$3} /^Installed Size/ {s=$4; u=$5; if(u=="B") s/=1048576; else if(u=="KiB") s/=1024; else if(u=="GiB") s*=1024; t+=s; printf "%015.2f\t%-35s %.2f MiB\n", s, p, s} END {printf "%015.2f\t%s\n", 999999999.98, "────────────────────────────────────────────────"; printf "%015.2f\t%-35s %.2f MiB\n", 999999999.99, "TOTAL:", t}' | sort -n | cut -f2-
+    - "pacman -Scc --noconfirm"
