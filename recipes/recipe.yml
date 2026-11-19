@@ -153,9 +153,9 @@ modules:
             - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
 - type: files
   files:
-    - source: usr
+    - source: system/usr
       destination: /usr
-    - source: etc
+    - source: system/etc
       destination: /etc
 
 - type: signing # this sets up the proper policy & signing files for signed images to work fully
