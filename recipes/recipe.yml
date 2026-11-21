@@ -13,9 +13,9 @@ image-version: latest #You can pin to a specific version of Fedora as wel
 # you can include multiple instances of the same module
 modules:
 #- from-file: common-modules.yml
-- from-file: desktop-modules.yml
-- from-file: sddm-modules.yml
-- from-file: hyprland-modules.yml
+- from-file: common/desktop-modules.yml
+- from-file: common/sddm-modules.yml
+- from-file: common/hyprland-modules.yml
 -  type: script
    snippets:
      # Install all optional dependencies for xarchiver
