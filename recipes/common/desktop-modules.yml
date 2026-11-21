@@ -1,60 +1,141 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
 modules:
-  - type : dnf
+  - type: pacman
     install:
       packages:
-      #basic setup
-      - screen
-      - p7zip
-      - unrar
-      - cmake
-      - meson
-      - usbutils
-      - fish
-      - htop
-      - btop
-      - rsync
-      - virt-manager
-      - python3-llfuse
-      - hwinfo
-      - unzip
-      - speedtest-cli
-      - restic
-      - fwupd
-      - libappindicator-gtk3
-      - zsh
-      - easytag
-      - libdvdcss
-      - egl-wayland
-      - evtest
-      - qt6ct
-      - fox-utils
-      - zip
-    # Hunnisett generic despktop apps
-      - wmname
-      - perf
-      - fuse-sshfs
-      - libsmbclient
-      - wl-clipboard
-      - gimp
-      - handbrake
+        #GPU
+        - mesa
+        - lib32-mesa
+        - vulkan-radeon
+        - vulkan-tools
+        # Audio
+        - pipewire
+        - pipewire-audio
+        - pipewire-alsa
+        - pipewire-pulse
+        - pipewire-jack
+        - pipewire-libcamera
+        - pipewire-v4l2
+        - pipewire-ffado
+        # Network
+        - wget
+        # Bluetooth
+        - bluez
+        - bluez-obex
+        - bluez-mesh
+        - bluez-utils
+        # Font
+        - noto-fonts
+        - noto-fonts-cjk
+        - noto-fonts-emoji
+        - noto-fonts-extra
+        # Archives GUI
+        - xarchiver
+        # AppImage thumbnailer dependencies
+        - squashfuse
+        - imagemagick
+        # usb-storage-optimized-async dependencies
+        - usbutils
+        - bc
+        # Debugging
+        - strace
+        - libva-utils
+        - mesa-utils
+        - vulkan-tools
+        - clinfo
+        - xdotool
+        - joyutils
+        # DNS resolver (replaces systemd-resolved)
+        - unbound
+        - avahi
+        - nss-mdns
+        # OOM prevention
+        - jsoncpp
+        # Provides setfattr for oomd-protect-self (user.oomd_avoid xattr tagging)
+        - attr
+        # Other
+        - expac
+        - dash
+        - git
+        # Virtual machines
+        - virtualbox-guest-utils
+        - qemu-guest-agent
+        - spice-vdagent
+        - phodav
+        # Containers
+        - distrobox
+        # Desktop environment
+        - obsidian-icon-theme
+        - kvantum-qt5
+        - kvantum
+        - qt5ct
+        - qt6ct
+        - accountsservice
+        - pavucontrol
+        - xdg-user-dirs
+        - gvfs
+        - gvfs-mtp
+        - zram-generator
+        # CLI editor
+        - nano
+
+  - from-file: sddm-modules.yml
+  - type: pacman
+    install:
+      packages:
+        - screen
+        - p7zip
+        - unrar
+        - cmake
+        - meson
+        - usbutils
+        - fish
+        - htop
+        - btop
+        - rsync
+        - virt-manager
+        - python3-llfuse
+        - hwinfo
+        - unzip
+        - speedtest-cli
+        - restic
+        - fwupd
+        - libappindicator-gtk3
+        - zsh
+        - easytag
+        - libdvdcss
+        - egl-wayland
+        - evtest
+        - qt6ct
+        - fox-utils
+        - zip
+         # Hunnisett generic despktop apps
+        - wmname
+        - perf
+        - fuse-sshfs
+        - libsmbclient
+        - wl-clipboard
+        - gimp
+        - handbrake
+
+
 
 
 
     #Java
-  - type: dnf
-    install:
-      packages:
-       #- temurin-8-jdk-8.0.512.0.0.9-0.x86_64.rpm
-       - temurin-11-jdk-11.0.33.0.0.10-0.x86_64.rpm
-       #- https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-17-jdk-17.0.21.0.0.9-0.x86_64.rpm
-       #- https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-21-jdk-21.0.13.0.0.9-0.x86_64.rpm
-       #- https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-25-jdk-25.0.5.0.0.8-0.x86_64.rpm
-       - maven
+#   - type: dnf
+#     install:
+#       packages:
+#        #- temurin-8-jdk-8.0.512.0.0.9-0.x86_64.rpm
+#        - temurin-11-jdk-11.0.33.0.0.10-0.x86_64.rpm
+#        #- https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-17-jdk-17.0.21.0.0.9-0.x86_64.rpm
+#        #- https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-21-jdk-21.0.13.0.0.9-0.x86_64.rpm
+#        #- https://packages.adoptium.net/artifactory/rpm/fedora/45/x86_64/Packages/temurin-25-jdk-25.0.5.0.0.8-0.x86_64.rpm
+#        - maven
+#
+#   - type: dnf
+#     install:
+#       packages:
+#         - brscan5-1.8.0-0.x86_64.rpm
 
-  - type: dnf
-    install:
-      packages:
-        - brscan5-1.8.0-0.x86_64.rpm
-
-  - from-file: common/fonts.yml
+  #- from-file: common/fonts.yml

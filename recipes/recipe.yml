@@ -12,106 +12,10 @@ image-version: latest #You can pin to a specific version of Fedora as wel
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-
-- type: pacman
-  install:
-    packages:
-      # GPU acceleration - OpenGL, Vulkan, video decoding/encoding (I won't cover proprietary Nvidia by default)
-              - mesa
-              - vulkan-radeon
-              - vulkan-intel
-              - vulkan-nouveau
-              - vulkan-swrast
-              - libva-intel-driver
-              - intel-media-driver
-              - libvpl
-              - vpl-gpu-rt
-              - intel-media-sdk
-              # Audio
-              - pipewire
-              - pipewire-audio
-              - pipewire-alsa
-              - pipewire-pulse
-              - pipewire-jack
-              - pipewire-libcamera
-              - pipewire-v4l2
-              - pipewire-ffado
-              # Time-sync
-              - chrony
-              # Network
-              - networkmanager
-              - wget
-              # Bluetooth
-              - bluez
-              - bluez-obex
-              - bluez-mesh
-              - bluez-utils
-              # Virtual machines
-              - virtualbox-guest-utils
-              - qemu-guest-agent
-              - spice-vdagent
-              - phodav
-              # Containers
-              - distrobox
-              # Font
-              - noto-fonts
-              - noto-fonts-cjk
-              - noto-fonts-emoji
-              - noto-fonts-extra
-              # Desktop environment
-              - xorg
-              - xorg-drivers
-              - xfce4
-              - xfce4-screenshooter
-              - obsidian-icon-theme
-              - kvantum-qt5
-              - kvantum
-              - qt5ct
-              - qt6ct
-              - lightdm
-              - lightdm-gtk-greeter
-              - accountsservice
-              - pavucontrol
-              - network-manager-applet
-              - blueman
-              - xfce4-whiskermenu-plugin
-              - xfce4-notifyd
-              - xfce4-pulseaudio-plugin
-              - xfce4-xkb-plugin
-              - thunar-archive-plugin
-              - xdg-user-dirs
-              - gvfs
-              - gvfs-mtp
-              - zram-generator
-              # CLI editor
-              - nano
-              # Archives GUI
-              - xarchiver
-              # AppImage thumbnailer dependencies
-              - squashfuse
-              - imagemagick
-              # usb-storage-optimized-async dependencies
-              - usbutils
-              - bc
-              # Debugging
-              - strace
-              - libva-utils
-              - mesa-utils
-              - vulkan-tools
-              - clinfo
-              - xdotool
-              # DNS resolver (replaces systemd-resolved)
-              - unbound
-              - avahi
-              - nss-mdns
-              # OOM prevention
-              - jsoncpp
-              # Provides setfattr for oomd-protect-self (user.oomd_avoid xattr tagging)
-              - attr
-              # Other
-              - expac
-              - dash
-              - git
+#- from-file: common-modules.yml
+- from-file: desktop-modules.yml
+- from-file: sddm-modules.yml
+- from-file: hyprland-modules.yml
 -  type: script
    snippets:
      # Install all optional dependencies for xarchiver
@@ -142,7 +46,7 @@ modules:
       sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers || echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
       # Set default language to English and generate locale
       - |
-      sed -i 's/^# *\([a-z]\+\_[A-Z]\+.*\)/\1/' /etc/locale.gen
+      sed -i '/en_GB/s/^#*//' /etc/locale.gen
       - "locale-gen"
       - "echo 'LANG=en_GB.UTF-8' > /etc/locale.conf"
       # Set nano as the default editor

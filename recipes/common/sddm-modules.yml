@@ -1,22 +1,20 @@
 modules:
-    - type: dnf
+    - type: pacman
       install:
-        install-weak-deps: false
         packages:
           - sddm
-          - sddm-themes
-          - qt5-qtgraphicaleffects
+          - archlinux-themes-sddm
+          - qt5-graphicaleffects
           - qt5-qtquickcontrols2
-          - qt5-qtsvg
-          - qt6-qtsvg
-          - qt6-qt5compat
-          - qt6-qtmultimedia
-          - gstreamer1-plugins-base
-          - gstreamer1-plugins-good
-          - gstreamer1-plugins-good-extras
-          - gstreamer1-plugins-good-qt6
-          - gstreamer1-plugins-ugly-free
-          - gstreamer1-plugins-bad-free
+          - qt5-svg
+          - qt6-svg
+          - qt6-multimedia
+          - gst-plugins-base
+          - gst-plugins-base-libs
+          - gst-plugins-good
+          - gst-plugins-bad-libs
+          - gst-plugins-ugly
+
           # Don't think I need or want the next two lines...
           #- kwallet
           #- pam-kwallet
