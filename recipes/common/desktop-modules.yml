@@ -79,7 +79,7 @@ modules:
         # CLI editor
         - nano
 
-  - from-file: sddm-modules.yml
+  - from-file: common/sddm-modules.yml
   - type: pacman
     install:
       packages:
