@@ -1,5 +1,8 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
 modules:
+  - type: script
+    snippets:
+    - "echo '[multilib] \nServer = https://mirror.cj2.nl/archlinux/$repo/os/$arch' >> /etc/pacman.conf"
   - type: pacman
     install:
       packages:
