@@ -3,6 +3,7 @@ modules:
   - type: script
     snippets:
     - "echo '[multilib] \nServer = https://mirror.cj2.nl/archlinux/$repo/os/$arch' >> /etc/pacman.conf"
+    - "echo '[redfruit] \nServer = https://pacman.redfruit.co.uk/' >> /etc/pacman.conf"
   - type: pacman
     install:
       packages:
