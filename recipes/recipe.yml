@@ -61,6 +61,10 @@ modules:
     - source: system/etc
       destination: /etc
 
+- type: script
+  snippets:
+    - echo "KEYMAP=uk" > /etc/vconsole.conf
+
 - type: signing # this sets up the proper policy & signing files for signed images to work fully
 - type: script
   snippets:
