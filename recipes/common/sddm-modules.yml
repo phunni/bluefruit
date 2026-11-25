@@ -23,8 +23,9 @@ modules:
           #- kwallet
           #- pam-kwallet
 
-    #- type: script
-    #  scripts:
+    - type: script
+      snippets:
+        - "echo '[Theme] Current=winter' >> /etc/sddm.conf.d/theme.conf"       #  scripts:
     #    - setsddmtheming.sh
     #    - setsddmtheming.sh
 

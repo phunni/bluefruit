@@ -17,7 +17,7 @@ Item {
     property int  userIndex:    userModel.lastIndex >= 0 ? userModel.lastIndex : 0
     property int  sessionIndex: (sessionModel && sessionModel.lastIndex >= 0) ? sessionModel.lastIndex : 0
     property bool loginError:   false
-    
+
     // UI state for menus
     property bool sessionMenuOpen: false
 
@@ -45,13 +45,12 @@ Item {
     Timer { interval: 300; running: true; onTriggered: passInput.forceActiveFocus() }
 
     // ── BACKGROUND ──
-    Rectangle { anchors.fill: parent; color: "#05080c"; z: -1000 }
-    MediaPlayer {
-        id: player; source: "bg.mp4"
-        videoOutput: bgVideo; loops: MediaPlayer.Infinite
-        Component.onCompleted: player.play()
+    Image {
+    id: background
+    anchors.fill: parent
+    source: "static_bg.png"
+    fillMode: Image.PreserveAspectCrop
     }
-    VideoOutput { id: bgVideo; anchors.fill: parent; fillMode: VideoOutput.PreserveAspectCrop; z: -500 }
 
     // Subtle dark gradient from bottom up to improve text legibility over the dark trees
     Rectangle {
@@ -255,7 +254,7 @@ Item {
         }
 
         // ── POPUP MENUS ──
-        
+
         // Session Menu Menu
         Rectangle {
             anchors.left: parent.left; anchors.leftMargin: 50 * s
