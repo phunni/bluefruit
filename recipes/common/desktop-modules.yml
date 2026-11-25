@@ -117,13 +117,13 @@ modules:
         - egl-wayland
         - evtest
         - qt6ct
-        - fox-utils
+        - fox
         - zip
          # Hunnisett generic despktop apps
         - wmname
         - perf
-        - fuse-sshfs
-        - libsmbclient
+        - sshfs
+        - smbclient
         - wl-clipboard
         - gimp
         - handbrake
