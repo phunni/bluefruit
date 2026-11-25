@@ -1,23 +1,27 @@
 modules:
-    - type: dnf
-      repos:
-        copr:
-          enable:
-            - lionheartp/Hyprland
+    - type: pacman
       install:
-        install-weak-deps: false
         packages:
         - kitty
         - alacritty
         - hyprland
-        - waybar
+        - waybar-git
         - xdg-desktop-portal-hyprland
         - hyprpaper
         - hyprlock
         - hypridle
         - hyprland-guiutils
         - nwg-look
-
+        - hyprpolkitagent
+        - hyprland-protocols
+        - hyprland-qt-support
+        - hyprcursor
+        - hyprgraphics
+        - hyprlang
+        - hyprshutdown
+        - hyprfm-git
+        - hyprcursor-dracula-kde-git
+        - hyprland-workspaces
     - type: script
       scripts:
         - removeunprofessionalwallpapers.sh
