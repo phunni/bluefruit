@@ -6,9 +6,11 @@ modules:
           - archlinux-themes-sddm
           - qt5-graphicaleffects
           - qt5-quickcontrols2
+          - qt5-declarative
           - qt5-svg
           - qt6-svg
           - qt6-multimedia
+          - qt6-declarative
           - gst-plugins-base
           - gst-plugins-base-libs
           - gst-plugins-good
