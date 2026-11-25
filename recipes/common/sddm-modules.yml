@@ -10,7 +10,9 @@ modules:
           - qt5-svg
           - qt6-svg
           - qt6-multimedia
+          - qt6-multimedia-ffmpeg
           - qt6-declarative
+          - qt6-5compat
           - gst-plugins-base
           - gst-plugins-base-libs
           - gst-plugins-good
