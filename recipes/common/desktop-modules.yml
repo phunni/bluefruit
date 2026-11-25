@@ -9,7 +9,7 @@ modules:
     - "echo '[multilib] \nServer = https://mirror.cj2.nl/archlinux/$repo/os/$arch' >> /etc/pacman.conf"
     - "echo '[redfruit] \nServer = https://pacman.redfruit.co.uk/' >> /etc/pacman.conf"
     - "pacman-key --add /opt/phunnimonkey-pub.asc"
-    - "pacman --lsign 098593C2BD619DB55074837D90432592AFF15CCA"
+    - "pacman --lsign-key 098593C2BD619DB55074837D90432592AFF15CCA"
   - type: pacman
     install:
       packages:
