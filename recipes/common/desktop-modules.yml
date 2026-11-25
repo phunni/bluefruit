@@ -104,7 +104,7 @@ modules:
         - btop
         - rsync
         - virt-manager
-        - python3-llfuse
+        - python-llfuse
         - hwinfo
         - unzip
         - speedtest-cli
