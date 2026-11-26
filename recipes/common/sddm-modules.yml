@@ -28,7 +28,7 @@ modules:
       snippets:
         - "mkdir /etc/sddm.conf.d/"
         - "touch /etc/sddm.conf.d/theme.conf"
-        - "echo '[Theme] Current=winter' >> /etc/sddm.conf.d/theme.conf"       #  scripts:
+        - "echo '[Theme]\nCurrent=winter' >> /etc/sddm.conf.d/theme.conf"       #  scripts:
     #    - setsddmtheming.sh
     #    - setsddmtheming.sh
 
