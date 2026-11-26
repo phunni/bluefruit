@@ -18,6 +18,7 @@ modules:
           - gst-plugins-good
           - gst-plugins-bad-libs
           - gst-plugins-ugly
+          - libjpeg-turbo
 
           # Don't think I need or want the next two lines...
           #- kwallet
