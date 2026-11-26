@@ -48,7 +48,7 @@ Item {
     Image {
     id: background
     anchors.fill: parent
-    source: "static_bg.png"
+    source: "static_bg.jpg"
     fillMode: Image.PreserveAspectCrop
     }
 
