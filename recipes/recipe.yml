@@ -54,6 +54,8 @@ modules:
             - "echo 'LD_PRELOAD=/usr/lib/libgtk-nocsd.so:/usr/lib/libappimage-scope.so' >> /etc/environment"
             - "echo 'SHARUN_ALLOW_LD_PRELOAD=1' >> /etc/environment"
             - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
+      # Add me to wheel
+      - "gpasswd -a paul wheel"
 - type: files
   files:
     - source: system/usr
