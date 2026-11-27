@@ -27,6 +27,11 @@ modules:
         - pipewire-libcamera
         - pipewire-v4l2
         - pipewire-ffado
+        - lib32-pipewire
+        - qpwgraph
+        - easyeffects
+        - easyeffects
+        - alsa-oss
         # Network
         - wget
         # Bluetooth
@@ -128,7 +133,10 @@ modules:
         - gimp
         - handbrake
 
-
+  - type: script
+    snippets:
+      - "touch /etc/sudoers.d/wheel"
+      - "echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers.d/wheel"
 
 
 
