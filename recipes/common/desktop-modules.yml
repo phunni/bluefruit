@@ -152,7 +152,7 @@ modules:
         - hunspell-en_GB
         - meld
         - perl-rename
-        - sdlpop
+        #- sdlpop
         - lf
         - zed
         - systemd-ui
