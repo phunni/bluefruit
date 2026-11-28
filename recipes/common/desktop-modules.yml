@@ -132,6 +132,48 @@ modules:
         - wl-clipboard
         - gimp
         - handbrake
+        - pix
+        - mailspring-bin
+        - lsdesktopf
+        - dmidecode
+        - naps2
+        - gmrun
+        - keepassxc
+        - mplayer
+        - smplayer
+        - libcurl-compat
+        - thermald
+        - sound-juicer
+        - whipper
+        - python-glfw
+        - posix
+        - libcurl-gnutls
+        - lib32-libcurl-gnutls
+        - hunspell-en_GB
+        - meld
+        - perl-rename
+        - sdlpop
+        - lf
+        - zed
+        - systemd-ui
+        - libxcrypt-compat
+        - gameconqueror
+        - nsxiv
+        - loupe
+        - nordic-theme
+        - dracula-gtk-theme
+
+  - type: pacman
+    install:
+      packages:
+        # NFS client setup
+        - nfs-utils
+
+  - type: pacman
+    install:
+        packages:
+        # AMD
+        - lib32-vulkan-radeon
 
   - type: script
     snippets:
