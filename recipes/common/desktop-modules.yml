@@ -132,7 +132,7 @@ modules:
         - wl-clipboard
         - gimp
         - handbrake
-        - pix
+        #- pix
         - mailspring-bin
         - lsdesktopf
         - dmidecode
